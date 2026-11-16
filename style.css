@@ -35,8 +35,49 @@ body {
     margin: 0;
     background:
         radial-gradient(ellipse at 75% 4%, rgb(33 91 75 / 14%), transparent 31rem),
+        repeating-linear-gradient(90deg, transparent 0 79px, rgb(154 244 197 / 2%) 80px, transparent 81px),
         var(--background);
     color: var(--text);
+}
+
+body::before,
+body::after {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    content: "";
+}
+
+body::before {
+    background: repeating-linear-gradient(
+        180deg,
+        transparent 0 3px,
+        rgb(154 244 197 / 2%) 4px,
+        transparent 5px
+    );
+}
+
+body::after {
+    inset: -18vh 0 auto;
+    height: 18vh;
+    background: linear-gradient(180deg, transparent, rgb(73 255 150 / 5%), transparent);
+    animation: matrix-scan 20s linear infinite;
+}
+
+.page-shell {
+    position: relative;
+    z-index: 1;
+}
+
+@keyframes matrix-scan {
+    from {
+        transform: translateY(-18vh);
+    }
+
+    to {
+        transform: translateY(118vh);
+    }
 }
 
 button,
@@ -456,5 +497,9 @@ h2 {
     *::after {
         scroll-behavior: auto !important;
         transition-duration: 0.01ms !important;
+    }
+
+    body::after {
+        animation: none;
     }
 }
