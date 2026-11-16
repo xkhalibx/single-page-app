@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0b1018">
+    <title>Signal / Cyber News Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="page-shell">
+        <header class="site-header">
+            <a class="brand" href="#" aria-label="Signal home">
+                <span class="brand-mark" aria-hidden="true">S</span>
+                <span>signal<span class="brand-period">.</span></span>
+            </a>
+            <span class="header-note"><span class="live-dot" aria-hidden="true"></span> LIVE FROM HACKER NEWS</span>
+        </header>
+
+        <main>
+            <section class="intro" aria-labelledby="page-title">
+                <p class="eyebrow">THE TECHNOLOGY BRIEFING</p>
+                <h1 id="page-title">Stay ahead<br>of <span>the signal.</span></h1>
+                <p class="intro-copy">The stories shaping cybersecurity and technology, straight from the Hacker News community.</p>
+                <div class="toolbar">
+                    <form id="searchForm" class="search-form">
+                        <label class="search-box">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <circle cx="10.8" cy="10.8" r="6.8"></circle>
+                                <path d="m16 16 4.2 4.2"></path>
+                            </svg>
+                            <span class="visually-hidden">Search stories</span>
+                            <input id="searchInput" name="q" type="search" placeholder="Search stories..." autocomplete="off" maxlength="80" pattern=".*\S.*" title="Enter at least one non-space character." aria-describedby="searchHelp">
+                            <kbd>/</kbd>
+                        </label>
+                        <span id="searchHelp" class="visually-hidden">Search terms may be up to 80 characters and cannot contain only spaces.</span>
+                        <button class="refresh-button search-submit" type="submit">Search</button>
+                    </form>
+                    <button class="refresh-button" id="loadNews" type="button">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M20 7v5h-5"></path>
+                            <path d="M4.9 9A7.5 7.5 0 0 1 18 6l2 6"></path>
+                            <path d="M4 17v-5h5"></path>
+                            <path d="M19.1 15A7.5 7.5 0 0 1 6 18l-2-6"></path>
+                        </svg>
+                        Refresh stories
+                    </button>
+                </div>
+            </section>
+
+            <section class="stories-section" aria-labelledby="stories-heading">
+                <div class="section-heading">
+                    <div>
+                        <p class="eyebrow">CURATED FOR THE CURIOUS</p>
+                        <h2 id="stories-heading">Top stories</h2>
+                    </div>
+                    <p class="story-count" id="storyCount"></p>
+                </div>
+                <div id="newsContainer" class="story-grid" aria-live="polite" aria-busy="false">
+                    <p class="message">Loading the latest stories...</p>
+                </div>
+            </section>
+        </main>
+
+        <footer class="site-footer">
+            <span>Powered by the Hacker News API</span>
+            <span>Independent signal. No noise.</span>
+        </footer>
+    </div>
+</body>
+</html>
